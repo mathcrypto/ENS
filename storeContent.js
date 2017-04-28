@@ -124,9 +124,7 @@ router.post('/', upload.single('file'), function(req, res, next) {
 		swarm.upload(new Buffer(data)).then(function(value) {
 			console.log(value);
 			var filehash = value;
-		
-		});
-			var hash = "0xb99576bd748002f99c4d1fa859600090fa0b3b1db1a289c98c0da8b31fc66558";
+			var hash = "0x" + filehash ;
               publicResolver.setContent(('tessilab.eth'), hash, {
 					from: web3.eth.accounts[0],
 					gas: '100000'
@@ -136,6 +134,9 @@ router.post('/', upload.single('file'), function(req, res, next) {
                	res.send(store);
 	
 	});
+		
+		});
+			
 });
 
 
