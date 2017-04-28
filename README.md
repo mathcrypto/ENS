@@ -48,21 +48,31 @@ var myRegistrar = fifsRegistrarContract.at(registrar.address);
 ii)You can skip the step of checking if a domain name is available as mentioned in http://docs.ens.domains/en/latest/userguide.html#fifs since you are working on your private blockchain and only you register and own names here.
 
 iii) Now choose a name you want to register, in this example we chose 'eth'
-`testRegistrar.register(web3.sha3('eth'), eth.accounts[0], {from: eth.accounts[0]});`
+```
+testRegistrar.register(web3.sha3('eth'), eth.accounts[0], {from: eth.accounts[0]});
+```
 iv) You can now check if you are the owner of this name by this command:
-`ens.owner(namehash('eth'));`
+```
+ens.owner(namehash('eth'));
+```
 
 v) Setting a name’s resolver:
 In this case, we will set the publicResolver:
-`ens.setResolver(namehash('eth'), publicResolver.address, {from: eth.accounts[0]});`
+```
+ens.setResolver(namehash('eth'), publicResolver.address, {from: eth.accounts[0]});
+```
 
 vi) Then, call the resolver’s setAddr method to set the address the name resolves to:
 
-`publicResolver.setAddr(namehash('eth'), eth.accounts[0], {from: eth.accounts[0]})`
+```
+publicResolver.setAddr(namehash('eth'), eth.accounts[0], {from: eth.accounts[0]})
+```
 
 7- Creating a subdomain:
 We will create tessilab.eth
- `ens.setSubnodeOwner(namehash('eth'), web3.sha3('tessilab'), eth.accounts[0], {from: eth.accounts[0]});`
+ ```
+ ens.setSubnodeOwner(namehash('eth'), web3.sha3('tessilab'), eth.accounts[0], {from: eth.accounts[0]});
+ ```
  After, you can set a resolver for it and address like previously.
 
 
